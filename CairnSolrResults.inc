@@ -149,7 +149,7 @@ class CairnSolrResults extends IslandoraSolrResults {
     }
     $uri = request_uri();
     $base_path = base_path();
-    $redirect = preg_replace($base_path, '', $uri);
+    $redirect = preg_replace("/$base_path/", '', $uri);
     $redirect = preg_replace('/\/\//', '/', $redirect);
 
     $_SESSION['search_url'] = request_uri();

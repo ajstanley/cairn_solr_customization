@@ -1,0 +1,62 @@
+<?php
+
+// $Id$
+
+/**
+ * @file
+ * Configuration module for islandora_solr_search.module
+ */
+function cairn_solr_customization_islandora_solr_primary_display() {
+
+  return array(
+    // 'machine-name' = array(
+    //   'name' => 'Human Readable Name',
+    //   'module' => 'module_name',
+    //   'file' => 'FileName.inc',
+    //   'class' => 'ClassName',
+    //   'function' => 'function_name',
+    //   'description' => 'A description of the display profile',
+    // );
+
+
+
+    'cairn_display' => array(
+      'name' => t('Cairn custom output'),
+      'module' => 'cairn_solr_customization',
+      'file' => 'CairnSolrResults.inc',
+      'class' => "CairnSolrResults",
+      'function' => "displayResults",
+      'description' => t("Custom display for CAIRN"),
+    ),
+  );
+}
+
+
+
+function cairn_solr_customization_islandora_solr_query_blocks() {
+  return array(
+    // 'machine_name' => array(
+    //   'name' => 'Human Readable Name',
+    //   'module' => 'module_name',
+    //   'file' => 'FileName.inc',
+    //   'class' => 'ClassName',
+    //   'function' => 'method_name',
+    //   'form' => 'form_function_name',
+    //  ),
+    //
+    // Note: As in the examples below, it is valid to specify
+    // *either* a class and method *or* a form.  The latter implies no
+    // class needs to be instantiated.
+    //
+
+    'cairn_book_facets' => array(
+      'name' => t('Cairn Books'),
+      'module' => 'cairn_solr_customization',
+      'file' => 'CairnSolrResults.inc',
+      'class' => 'CairnSolrResults',
+      'function' => 'displayCairnBookFacets',
+      'form' => NULL,
+    ),
+  );
+}
+
